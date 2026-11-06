@@ -70,4 +70,5 @@ public class Cliente {
     public void setListaPedidios(ArrayList<Pedido> listaPedidios) {
         ListaPedidios = listaPedidios;
     }
+
 }
