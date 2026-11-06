@@ -8,6 +8,8 @@ public class Restaurante {
 
     //listas
     private ArrayList<Cliente> ListaClientes;
+    private ArrayList<Producto>ListaProductos;
+    private ArrayList<Pedido>ListaPedidos;
 
     //constructor
     public Restaurante(String nombreComercial, int NIT, String direccion) {
@@ -16,6 +18,8 @@ public class Restaurante {
         this.direccion = direccion;
 
         this.ListaClientes = new ArrayList<>();
+        this.ListaProductos = new ArrayList<>();
+        this.ListaPedidos = new ArrayList<>();
     }
 
     //get y set
@@ -49,5 +53,21 @@ public class Restaurante {
 
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
         ListaClientes = listaClientes;
+    }
+
+    public ArrayList<Producto> getListaProductos() {
+        return ListaProductos;
+    }
+
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        ListaProductos = listaProductos;
+    }
+
+    public ArrayList<Pedido> getListaPedidos() {
+        return ListaPedidos;
+    }
+
+    public void setListaPedidos(ArrayList<Pedido> listaPedidos) {
+        ListaPedidos = listaPedidos;
     }
 }
