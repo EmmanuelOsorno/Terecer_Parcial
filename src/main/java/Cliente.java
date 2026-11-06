@@ -2,32 +2,32 @@ import java.util.ArrayList;
 
 public class Cliente {
     //atributos
-    private int numeroDocumento;
+    private String numeroDocumento;
     private String nombre;
     private int telefono;
-    private String corre;
+    private String correo;
     private String direccionResidencia;
 
     //listas
     private ArrayList<Pedido> ListaPedidios;
 
     //constructor
-    public Cliente(int numeroDocumento, String nombre, int telefono, String corre, String direccionResidencia) {
+    public Cliente(String numeroDocumento, String nombre, int telefono, String correo, String direccionResidencia) {
         this.numeroDocumento = numeroDocumento;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.corre = corre;
+        this.correo = correo;
         this.direccionResidencia = direccionResidencia;
 
         this.ListaPedidios = new ArrayList<>();
     }
 
     //get y set
-    public int getNumeroDocumento() {
+    public String getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(int numeroDocumento) {
+    public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
@@ -47,12 +47,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getCorre() {
-        return corre;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorre(String corre) {
-        this.corre = corre;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getDireccionResidencia() {
