@@ -7,18 +7,19 @@ public class Pedido {
     private String codigo;
     private LocalDate fecha;
     private Cliente cliente;
-    private ModalidadEntrega modalidadEnterga;
+    private Entrega entrega;
     private double distancia;
 
     //listas
     private ArrayList<Producto> ListaProductos;
 
     //constructor
-    public Pedido(String codigo, LocalDate fecha, Cliente cliente, ModalidadEntrega modalidadEnterga, double distancia) {
+    public Pedido(String codigo, LocalDate fecha, Cliente cliente, Entrega entrega, double distancia) {
         this.codigo = codigo;
         this.fecha = fecha;
         this.cliente = cliente;
-        this.modalidadEnterga = modalidadEnterga;
+        //es de tipo interface Entrega porque puede guardar cualquiera de los tipos de entrega que implemetan esa interface, ademas es en la interface donde estan los metodos que necesitamos para este atributo
+        this.entrega = entrega;
         this.distancia=distancia;
 
         this.ListaProductos = new ArrayList<>();
@@ -49,12 +50,12 @@ public class Pedido {
         this.cliente = cliente;
     }
 
-    public ModalidadEntrega getModalidadEnterga() {
-        return modalidadEnterga;
+    public Entrega getEntrega() {
+        return entrega;
     }
 
-    public void setModalidadEnterga(ModalidadEntrega modalidadEnterga) {
-        this.modalidadEnterga = modalidadEnterga;
+    public void setEntrega(Entrega entrega) {
+        this.entrega = entrega;
     }
 
     public ArrayList<Producto> getListaProductos() {
