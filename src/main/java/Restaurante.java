@@ -70,4 +70,8 @@ public class Restaurante {
     public void setListaPedidos(ArrayList<Pedido> listaPedidos) {
         ListaPedidos = listaPedidos;
     }
+
+    //====================METODOS=======================
+
+
 }
