@@ -36,10 +36,64 @@ public class App {
 
             switch (opcion) {
                 case 1:
+                    // Registrar producto
+                    break;
 
+                case 2:
+                    // Registrar cliente
+                    break;
 
+                case 3:
+                    // Consultar productos disponibles
+                    break;
 
+                case 4:
+                    // Consultar rechazados por calidad
+                    break;
+
+                case 5:
+                    // Registrar pedido
+                    break;
+
+                case 6:
+                    // Gestionar servicio a domicilio
+                    break;
+
+                case 7:
+                    // Confirmar pedido
+                    break;
+
+                case 8:
+                    // Consultar y actualizar pedidos de un cliente
+                    break;
+
+                case 9:
+                    // Consultar estado del pedido
+                    break;
+
+                case 10:
+                    // Consultar ingresos del restaurante
+                    break;
+
+                case 11:
+                    // Consultar producto más vendido
+                    break;
+
+                case 12:
+                    // Consultar categoría con mayores ingresos
+                    break;
+
+                case 0:
+                    System.out.println("Gracias por utilizar Sabor & Tradicion.");
+                    break;
+
+                default:
+                    System.out.println("Opcion no valida. Intente nuevamente.");
+                    break;
             }
+
+
+
 
         }
         while (opcion != 0) ;
