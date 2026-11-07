@@ -38,10 +38,10 @@ public class Postre extends Producto{
         this.refrigeracion = refrigeracion;
     }
 
-    //calcular precio de postre
+    //calcular precio de postre---adicional 0.05 si necesita refirgeración
     @Override
     public double precioVenta() {
-        double precioPostre=getPrecioBase();
+        double precioPostre=getPrecioBase()+ (getPrecioBase() * 0.15);
         if(refrigeracion==true){
             precioPostre+=(getPrecioBase()*0.05);
         }

@@ -40,7 +40,7 @@ public class PlatoFuerte extends Producto{
     //calcular precio de plato fuerte
     @Override
     public double precioVenta() {
-        double precioPlatoFuerte=(getPrecioBase()*0.2)+getPrecioBase();
+        double precioPlatoFuerte=(getPrecioBase()*0.20)+getPrecioBase();
         return precioPlatoFuerte;
     }
 
