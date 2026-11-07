@@ -74,16 +74,9 @@ public class Pedido {
         this.distancia = distancia;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{" +
-                "codigo='" + codigo + '\'' +
-                ", fecha=" + fecha +
-                ", cliente=" + cliente +
-                ", entrega=" + entrega +
-                ", distancia=" + distancia +
-                ", ListadetallePedidos=" + ListadetallePedidos +
-                '}';
-    }
+    //agregar detalles
+    //calcular el valor del producto
+    //calcular valor total
+
 }
 
