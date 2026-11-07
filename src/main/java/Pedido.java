@@ -11,7 +11,7 @@ public class Pedido {
     private double distancia;
 
     //listas
-    private ArrayList<Producto> ListaProductos;
+    private ArrayList<detallePedido> ListadetallePedidos;
 
     //constructor
     public Pedido(String codigo, LocalDate fecha, Cliente cliente, Entrega entrega, double distancia) {
@@ -22,7 +22,7 @@ public class Pedido {
         this.entrega = entrega;
         this.distancia=distancia;
 
-        this.ListaProductos = new ArrayList<>();
+        this.ListadetallePedidos = new ArrayList<>();
     }
 
     //get y set
@@ -58,12 +58,12 @@ public class Pedido {
         this.entrega = entrega;
     }
 
-    public ArrayList<Producto> getListaProductos() {
-        return ListaProductos;
+    public ArrayList<detallePedido> getListadetallePedidos() {
+        return ListadetallePedidos;
     }
 
-    public void setListaProductos(ArrayList<Producto> listaProductos) {
-        ListaProductos = listaProductos;
+    public void setListadetallePedidos(ArrayList<detallePedido> listadetallePedidos) {
+        ListadetallePedidos = listadetallePedidos;
     }
 
     public double getDistancia() {
@@ -73,4 +73,17 @@ public class Pedido {
     public void setDistancia(double distancia) {
         this.distancia = distancia;
     }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "codigo='" + codigo + '\'' +
+                ", fecha=" + fecha +
+                ", cliente=" + cliente +
+                ", entrega=" + entrega +
+                ", distancia=" + distancia +
+                ", ListadetallePedidos=" + ListadetallePedidos +
+                '}';
+    }
 }
+
