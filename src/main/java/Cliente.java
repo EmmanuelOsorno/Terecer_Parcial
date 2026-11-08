@@ -71,10 +71,10 @@ public class Cliente {
     }
 
     //Verificar pedido
-    public boolean verificarPedidos(String codigo) {
+    public boolean verificarPedidos(String codigoPedido) {
 
         for (Pedido pedido : ListaPedidos) {
-            if (pedido.getCodigo().equals(codigo)) {
+            if (pedido.getCodigoPedido().equals(codigoPedido)) {
                 return true;
             }
         }
@@ -85,7 +85,7 @@ public class Cliente {
     public boolean agregarPedidoCliente(Pedido pedido) {
         boolean agregado = false;
 
-        boolean existe = verificarPedidos(pedido.getCodigo());
+        boolean existe = verificarPedidos(pedido.getCodigoPedido());
 
         if (existe == false) {
             ListaPedidos.add(pedido);
