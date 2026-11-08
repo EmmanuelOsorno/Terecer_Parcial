@@ -4,34 +4,39 @@ import java.util.ArrayList;
 public class Pedido {
 
     //atributos
-    private String codigo;
+    private String codigoPedido;
     private LocalDate fecha;
+    private double distancia;
     private Cliente cliente;
     private Entrega entrega;
-    private double distancia;
+    private EstadoPedido estadoPedido;
+
 
     //listas
     private ArrayList<detallePedido> ListadetallePedidos;
 
     //constructor
-    public Pedido(String codigo, LocalDate fecha, Cliente cliente, Entrega entrega, double distancia) {
-        this.codigo = codigo;
+    public Pedido(String codigoPedido, LocalDate fecha, double distancia, Cliente cliente, Entrega entrega) {
+        this.codigoPedido = codigoPedido;
         this.fecha = fecha;
+        this.distancia=distancia;
         this.cliente = cliente;
         //es de tipo interface Entrega porque puede guardar cualquiera de los tipos de entrega que implemetan esa interface, ademas es en la interface donde estan los metodos que necesitamos para este atributo
-        this.entrega = entrega;
-        this.distancia=distancia;
+        this.entrega= entrega;
+        this.estadoPedido= EstadoPedido.PENDIENTE; // esta en estado inicial
+
 
         this.ListadetallePedidos = new ArrayList<>();
     }
 
     //get y set
-    public String getCodigo() {
-        return codigo;
+
+    public String getCodigoPedido() {
+        return codigoPedido;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setCodigoPedido(String codigoPedido) {
+        this.codigoPedido = codigoPedido;
     }
 
     public LocalDate getFecha() {
@@ -58,6 +63,14 @@ public class Pedido {
         this.entrega = entrega;
     }
 
+    public EstadoPedido getEstadoPedido() {
+        return estadoPedido;
+    }
+
+    public void setEstadoPedido(EstadoPedido estadoPedido) {
+        this.estadoPedido = estadoPedido;
+    }
+
     public ArrayList<detallePedido> getListadetallePedidos() {
         return ListadetallePedidos;
     }
@@ -75,8 +88,30 @@ public class Pedido {
     }
 
     //agregar detalles
-    //calcular el valor del producto
+
+    public boolean agregarDetalle(detallePedido detalle) {
+        boolean agregado = false;
+
+        if (detalle != null && detalle.validarCantidad()) {
+            ListadetallePedidos.add(detalle);
+            agregado = true;
+        }
+
+        return agregado;
+    }
+
     //calcular valor total
+    public double calcularTotalPedido(double costoEntrega) {
+        double total = 0;
+
+        for (detallePedido detalle : ListadetallePedidos) {
+            total += detalle.calcularSubtotal();
+        }
+
+        total += costoEntrega;
+
+        return total;
+    }
 
 }
 
