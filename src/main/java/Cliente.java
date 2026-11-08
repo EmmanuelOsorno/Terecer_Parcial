@@ -3,23 +3,22 @@ import java.util.ArrayList;
 public class Cliente {
     //atributos
     private String numeroDocumento;
-    private String nombre;
+    private String nombreCompleto;
     private int telefono;
     private String correo;
     private String direccionResidencia;
 
     //listas
-    private ArrayList<Pedido> ListaPedidios;
+    private ArrayList<Pedido> ListaPedidos;
 
     //constructor
-    public Cliente(String numeroDocumento, String nombre, int telefono, String correo, String direccionResidencia) {
+    public Cliente(String numeroDocumento, String nombreCompleto, int telefono, String correo, String direccionResidencia) {
         this.numeroDocumento = numeroDocumento;
-        this.nombre = nombre;
+        this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
         this.correo = correo;
         this.direccionResidencia = direccionResidencia;
-
-        this.ListaPedidios = new ArrayList<>();
+        this.ListaPedidos = new ArrayList<>();
     }
 
     //get y set
@@ -31,12 +30,12 @@ public class Cliente {
         this.numeroDocumento = numeroDocumento;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public int getTelefono() {
@@ -63,12 +62,48 @@ public class Cliente {
         this.direccionResidencia = direccionResidencia;
     }
 
-    public ArrayList<Pedido> getListaPedidios() {
-        return ListaPedidios;
+    public ArrayList<Pedido> getListaPedidos() {
+        return ListaPedidos;
     }
 
-    public void setListaPedidios(ArrayList<Pedido> listaPedidios) {
-        ListaPedidios = listaPedidios;
+    public void setListaPedidos(ArrayList<Pedido> listaPedidos) {
+        ListaPedidos = listaPedidos;
     }
 
+    //Verificar pedido
+    public boolean verificarPedidos(String codigoPedido) {
+
+        for (Pedido pedido : ListaPedidos) {
+            if (pedido.getCodigoPedido().equals(codigoPedido)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Mètodo agregar pedido
+    public boolean agregarPedidoCliente(Pedido pedido) {
+        boolean agregado = false;
+
+        boolean existe = verificarPedidos(pedido.getCodigoPedido());
+
+        if (existe == false) {
+            ListaPedidos.add(pedido);
+            agregado = true;
+        }
+
+        return agregado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "numeroDocumento='" + numeroDocumento + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", telefono=" + telefono +
+                ", correo='" + correo + '\'' +
+                ", direccionResidencia='" + direccionResidencia + '\'' +
+                ", ListaPedidos=" + ListaPedidos +
+                '}';
+    }
 }

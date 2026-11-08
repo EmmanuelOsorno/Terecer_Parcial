@@ -5,7 +5,7 @@ public class EntregaSegura extends ModalidadEntregas implements Entrega{
 
     @Override
     public double calcularCostoEntrega(double distancia) {
-        double costo=7000+(1000*distancia);
+        double costo=getValorBase()+(1000*distancia);
         if(distancia>5){
             costo+=3000;
         }

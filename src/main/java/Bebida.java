@@ -50,7 +50,7 @@ public class Bebida extends Producto{
     //calcular precio de bebida
     @Override
     public double precioVenta() {
-        double precioBebida=(getPrecioBase()*0.1)+getPrecioBase();
+        double precioBebida=(getPrecioBase()*0.10)+getPrecioBase();
         //si requiere preparacion especial
         if(preparacionEspecial==true){
             precioBebida+=3000;

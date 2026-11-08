@@ -6,7 +6,7 @@ public class RapidoExpress extends ModalidadEntregas implements Entrega{
 
     @Override
     public double calcularCostoEntrega(double distancia) {
-        return 5000+(1500*distancia);
+        return getValorBase()+(1500*distancia);
     }
     @Override
     public boolean aceptarEntrega(double distancia) {
