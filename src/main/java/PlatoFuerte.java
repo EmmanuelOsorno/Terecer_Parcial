@@ -10,6 +10,14 @@ public class PlatoFuerte extends Producto{
         this.pesoGramos = pesoGramos;
         this.tipoPreparacion = tipoPreparacion;
         ControlCocion = controlCocion;
+
+        //para el assertThrow
+        if(precioVenta()<=0){
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        if(pesoGramos<=0){
+            throw new IllegalArgumentException("El peso no puede ser negativo");
+        }
     }
 
     //get y set
