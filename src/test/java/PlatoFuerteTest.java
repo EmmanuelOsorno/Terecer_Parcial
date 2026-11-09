@@ -17,7 +17,7 @@ class PlatoFuerteTest {
 
     //
     @Test
-    void culpliarCondicionesCalidad(){
+    void cumpliarCondicionesCalidad(){
         assertTrue(platoFuerte.condicionesCalidad());
     }
 
