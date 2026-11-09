@@ -70,4 +70,16 @@ public class Bebida extends Producto{
         }
         return volumen&&temperatura;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Bebida: " + super.toString()+
+                "\nVolumen (Mililitros): " + volumenMililitros +
+                "\nTemperatura al servicio: " + temperaturaServicio +
+                "\nTipo: " + tipoBebida +
+                "\nPreparacion especial: " + preparacionEspecial +
+                "\n";
+
+    }
 }

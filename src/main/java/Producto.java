@@ -60,4 +60,14 @@ public abstract class Producto {
     public abstract double precioVenta();
     //es boolean porque necesitamos saber si cumple o no con las condiciones
     public abstract boolean condicionesCalidad();
+
+    //toString
+    @Override
+    public String toString() {
+        return nombre +
+                "\nDescripcion: " + descripcion +
+                "\nCodigo: " + codigo +
+                "\nPrecioBase: " + precioBase +
+                "\nTiempoEstimadoPreparacion: " + tiempoEstimadoPreparacion;
+    }
 }

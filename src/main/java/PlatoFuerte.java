@@ -51,4 +51,14 @@ public class PlatoFuerte extends Producto{
         boolean tiempoPreparacion=(getTiempoEstimadoPreparacion()>=10&&getTiempoEstimadoPreparacion()<=60);
         return peso && tiempoPreparacion && ControlCocion;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Plato Fuerte: " + super.toString()+
+                "\nPeso (Gramos): " + pesoGramos +
+                "\nPresentacion: " + tipoPreparacion +
+                "\nControl de cocion: " + ControlCocion+
+                "\n";
+    }
 }

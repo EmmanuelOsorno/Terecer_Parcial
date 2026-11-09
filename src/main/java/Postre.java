@@ -60,4 +60,13 @@ public class Postre extends Producto{
         }
         return peso && temperatura;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Postre: " + super.toString()+
+                "\nPeso (Gramos): " + pesoGramos +
+                "\nTemperatura de almacenamiento: " + temperaturaAlmacenamiento +
+                "\nRefrigeracion: " + refrigeracion;
+    }
 }
