@@ -102,8 +102,6 @@ public class Cliente {
                 ", nombreCompleto='" + nombreCompleto + '\'' +
                 ", telefono=" + telefono +
                 ", correo='" + correo + '\'' +
-                ", direccionResidencia='" + direccionResidencia + '\'' +
-                ", ListaPedidos=" + ListaPedidos +
-                '}';
+                ", direccionResidencia='" + direccionResidencia;
     }
 }
