@@ -22,6 +22,11 @@ public class Restaurante {
         this.ListaProductos = new ArrayList<>();
         this.ListaPedidos = new ArrayList<>();
         this.ListaProductosRechazados= new ArrayList<>();
+
+        //para lel assertThrow
+        if(NIT==0){
+            throw new IllegalArgumentException("Debe registrar un NIT valido");
+        }
     }
 
     //get y set
