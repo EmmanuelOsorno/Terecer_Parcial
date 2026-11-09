@@ -24,7 +24,7 @@ class PlatoFuerteTest {
     //
     @Test
     void noPermitiPreciosNegativos(){
-        assertTrue(platoFuerte.precioVenta()>0);
+        assertTrue(platoFuerte.getPrecioBase()>0);
     }
 
     //
@@ -38,8 +38,4 @@ class PlatoFuerteTest {
     void noPermitirPesoNegativo(){ //con assertThrows
         assertThrows(IllegalArgumentException.class,()->{new PlatoFuerte("abc","Lomo asado","Lomo de cerdo asado acompaññado con papas hervidas",35000,30,-400,TipoPreparacion.ASADO,true);});
     }
-
-
-
-
 }
