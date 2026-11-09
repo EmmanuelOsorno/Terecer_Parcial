@@ -26,6 +26,17 @@ public class Pedido {
         this.estadoPedido= EstadoPedido.PENDIENTE; // esta en estado inicial
 
         this.ListadetallePedidos = new ArrayList<>();
+
+        //para los assertThrow
+        if(distancia<=0){
+            throw new IllegalArgumentException("La distancia no puede ser negativa");
+        }
+        if(cliente==null){
+            throw new IllegalArgumentException("No se puede registrar un pedido sin un cliente");
+        }
+        if(codigoPedido.equalsIgnoreCase("00000")){
+            throw new IllegalArgumentException("Codigo invalido");
+        }
     }
 
     //get y set
