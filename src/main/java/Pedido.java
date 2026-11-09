@@ -120,7 +120,7 @@ public class Pedido {
                 "\nCliente: " + cliente.getNombreCompleto() +
                 "\nEntrega: " + entrega +
                 "\nEstado del pedido: " + estadoPedido +
-                "\nDetalle del pedido: " + ListadetallePedidos;
+                "\nDetalle del pedido: " + ListadetallePedidos+"\n";
     }
 }
 
