@@ -19,6 +19,17 @@ public class Cliente {
         this.correo = correo;
         this.direccionResidencia = direccionResidencia;
         this.ListaPedidos = new ArrayList<>();
+
+        //para los assertThrow
+        if(!correo.contains("@")){
+            throw new IllegalArgumentException("Debe ser una dirección de correo valida");
+        }
+
+        //convertir el telefono en String (solo para esta prueba)
+        String telefonoTexto=String.valueOf(telefono);
+        if(telefonoTexto.length()<6){
+            throw new IllegalArgumentException("El numero de telefono no puede tener menos de 6 digitos");
+        }
     }
 
     //get y set
