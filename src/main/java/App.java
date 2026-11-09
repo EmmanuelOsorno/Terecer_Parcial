@@ -255,7 +255,7 @@ public class App {
                             break;
                         }
 
-                        //el la fecha del pedido se registra al mometo de crearlo
+                        //con java.time.LocalDate.now() la fecha del pedido se registra al momento de crearlo
                         Pedido pedido=new Pedido(codigoPedido, java.time.LocalDate.now(),distanciaPedido,clientePedido,entrega, estadoPedido);
 
                         //agregar productos al pedido
