@@ -357,7 +357,7 @@ public class Restaurante {
 
         if(mayorIngreso>0){
             return "La categoria con mayores ingresos es :"+categoriaMayorIngreso+
-                    "Ingresos: "+mayorIngreso;
+                    "\nIngresos: "+mayorIngreso;
         }else{
             return "No se puedo determinar la categoria con mayores ingresos";
         }
