@@ -16,7 +16,7 @@ public class Pedido {
     private ArrayList<detallePedido> ListadetallePedidos;
 
     //constructor
-    public Pedido(String codigoPedido, LocalDate fecha, double distancia, Cliente cliente, Entrega entrega) {
+    public Pedido(String codigoPedido, LocalDate fecha, double distancia, Cliente cliente, Entrega entrega, EstadoPedido estadoPedido) {
         this.codigoPedido = codigoPedido;
         this.fecha = fecha;
         this.distancia=distancia;
@@ -24,7 +24,6 @@ public class Pedido {
         //es de tipo interface Entrega porque puede guardar cualquiera de los tipos de entrega que implemetan esa interface, ademas es en la interface donde estan los metodos que necesitamos para este atributo
         this.entrega= entrega;
         this.estadoPedido= EstadoPedido.PENDIENTE; // esta en estado inicial
-
 
         this.ListadetallePedidos = new ArrayList<>();
     }
@@ -88,7 +87,6 @@ public class Pedido {
     }
 
     //agregar detalles
-
     public boolean agregarDetalle(detallePedido detalle) {
         boolean agregado = false;
 
@@ -113,5 +111,16 @@ public class Pedido {
         return total;
     }
 
+    //toString
+    @Override
+    public String toString() {
+        return "Pedido " + codigoPedido+
+                "\nFecha del pedido: " + fecha +
+                "\nDistancia del domicilio: " + distancia +
+                "\nCliente: " + cliente.getNombreCompleto() +
+                "\nEntrega: " + entrega +
+                "\nEstado del pedido: " + estadoPedido +
+                "\nDetalle del pedido: " + ListadetallePedidos;
+    }
 }
 
