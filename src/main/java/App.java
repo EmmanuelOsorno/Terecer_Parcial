@@ -238,22 +238,8 @@ public class App {
                             break;
                         }
 
-                        System.out.println("1. Pendiente\n2. Confirmado,\n3. Entregado,\n4. Cancelado\nSeleccione el estado del pedido: ");
-                        int opcionEstado=scanner.nextInt();
-                        //limpiar buffer
-                        scanner.nextLine();
-                        //lo iniciamos en pendiente
+                        //el estado al crear el pedido siempre se genera como PENDIENTE, porque asi se determino en la clase Pedido
                         EstadoPedido estadoPedido=EstadoPedido.PENDIENTE;
-                        switch (opcionEstado){
-                            case 1:estadoPedido=EstadoPedido.PENDIENTE;
-                            break;
-                            case 2: estadoPedido=EstadoPedido.CONFIRMADO;
-                            break;
-                            case 3:estadoPedido=EstadoPedido.ENTREGADO;
-                            break;
-                            case 4:estadoPedido=EstadoPedido.CANCELADO;
-                            break;
-                        }
 
                         //con java.time.LocalDate.now() la fecha del pedido se registra al momento de crearlo
                         Pedido pedido=new Pedido(codigoPedido, java.time.LocalDate.now(),distanciaPedido,clientePedido,entrega, estadoPedido);
