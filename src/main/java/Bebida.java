@@ -14,6 +14,7 @@ public class Bebida extends Producto{
         this.preparacionEspecial = preparacionEspecial;
 
         //para los assertThrow
+
         if(descripcion==null){
             throw new IllegalArgumentException("La descripcion no puede estar vacia");
         }
