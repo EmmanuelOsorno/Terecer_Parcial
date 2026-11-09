@@ -11,6 +11,14 @@ public class Postre extends Producto{
         this.pesoGramos = pesoGramos;
         this.temperaturaAlmacenamiento = temperaturaAlmacenamiento;
         this.refrigeracion = refrigeracion;
+
+        //para los assertThrow
+        if(refrigeracion==true && temperaturaAlmacenamiento>6){
+            throw new IllegalArgumentException("La temperatura de almacenamiento no puede ser mayor a 6 grados");
+        }
+        if(tiempoEstimadoPreparacion<=0){
+            throw new IllegalArgumentException("El tiempo de preparacion no puede ser negativo");
+        }
     }
 
     //get y set
