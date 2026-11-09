@@ -34,9 +34,6 @@ public class detallePedido {
 
     @Override
     public String toString() {
-        return "detallePedido{" +
-                "cantidad=" + cantidad +
-                ", producto=" + producto +
-                '}';
+        return cantidad + " unidades de: "+producto.getNombre();
     }
 }
