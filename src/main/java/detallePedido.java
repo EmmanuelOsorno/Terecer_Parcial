@@ -5,6 +5,14 @@ public class detallePedido {
     public detallePedido(int cantidad, Producto producto) {
         this.cantidad = cantidad;
         this.producto= producto;
+
+        //para los assertThrow
+        if(cantidad<=0){
+            throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        }
+        if(producto==null){
+            throw new IllegalArgumentException("Se necesita minimo un prodcuto para generar el detalle del pedido");
+        }
     }
 
     public int getCantidad() {
