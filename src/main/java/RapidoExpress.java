@@ -16,4 +16,11 @@ public class RapidoExpress extends ModalidadEntregas implements Entrega{
         }
         return acepto;
     }
+
+    //tString
+
+    @Override
+    public String toString() {
+        return "RapidoExpress";
+    }
 }

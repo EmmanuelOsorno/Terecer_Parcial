@@ -15,4 +15,11 @@ public class ConsumoRestaurante extends ModalidadEntregas implements Entrega{
     public boolean aceptarEntrega(double distancia) {
         return true;
     }
+
+    //toString
+
+    @Override
+    public String toString() {
+        return "Consumo en Restaurante";
+    }
 }

@@ -20,4 +20,10 @@ public class EntregaSegura extends ModalidadEntregas implements Entrega{
         }
         return acepto;
     }
+
+    //toString
+    @Override
+    public String toString() {
+        return "EntregaSegura";
+    }
 }
