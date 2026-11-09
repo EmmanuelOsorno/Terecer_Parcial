@@ -25,7 +25,7 @@ public class RapidoExpressTest {
     @Test
     //"if (distancia <= 12)"
     //ejemplo con 15km
-    void verificarFalseConDistanciaFueraDelRango(){
+    void verificarAceptarEntregaFalseConDistanciaFueraDelRango(){
     //"assertFalse(rapidoExpress.aceptarEntrega(15)==true);" es verdad(true) que esa condicion sera falsa (no se aceptara la entrega)
         assertFalse(rapidoExpress.aceptarEntrega(15)==true);
     }
@@ -39,7 +39,7 @@ public class RapidoExpressTest {
 
     //verificar que implemente la interface Entrega
     @Test
-    //assertInstanceOf para identificar si el objeto rapidoExpress implement al interface Entrega
+    //assertInstanceOf para identificar si el objeto rapidoExpress implementa la interface Entrega
     void verificarImplementacionInterface(){
         assertInstanceOf(Entrega.class,rapidoExpress);
     }
