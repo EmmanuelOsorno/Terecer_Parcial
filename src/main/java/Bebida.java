@@ -12,6 +12,15 @@ public class Bebida extends Producto{
         this.temperaturaServicio = temperaturaServicio;
         this.tipoBebida = tipoBebida;
         this.preparacionEspecial = preparacionEspecial;
+
+        //para los assertThrow
+        if(descripcion==null){
+            throw new IllegalArgumentException("La descripcion no puede estar vacia");
+        }
+        if(tipoBebida==TipoBebida.FRIA && temperaturaServicio>10){
+            throw new IllegalArgumentException("La temperatura de una bebida fria no puede ser mayor a 10 grados");
+        }
+
     }
 
     //get y set
