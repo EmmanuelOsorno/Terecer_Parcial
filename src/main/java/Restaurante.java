@@ -84,7 +84,6 @@ public class Restaurante {
     //====================METODOS=======================
 
     //Registrar producto
-
     public boolean registrarProducto(Producto producto) {
         boolean registrado = false;
 
@@ -122,7 +121,6 @@ public class Restaurante {
     }
 
     //registrar Cliente
-
     public boolean registrarCliente(Cliente cliente) {
         boolean registrado = false;
 
@@ -140,11 +138,10 @@ public class Restaurante {
                 registrado = true;
             }
         }
-
         return registrado;
     }
-    //consultar productos disponibles
 
+    //consultar productos disponibles
     public ArrayList<Producto> consultarProductosDisponibles() {
         ArrayList<Producto> disponibles = new ArrayList<>();
 
@@ -153,12 +150,10 @@ public class Restaurante {
                 disponibles.add(producto);
             }
         }
-
         return disponibles;
     }
 
     //Consultar productos rechazados
-
     public ArrayList<Producto> consultarProductosRechazados() {
         ArrayList<Producto> rechazados = new ArrayList<>();
 
@@ -167,11 +162,10 @@ public class Restaurante {
                 rechazados.add(producto);
             }
         }
-
         return rechazados;
     }
-    //registrar Pedido
 
+    //registrar Pedido
     public boolean registrarPedido(Pedido pedido) {
         boolean registrado = false;
 
@@ -180,8 +174,7 @@ public class Restaurante {
             boolean pedidoExiste = false;
 
             for (Cliente cliente : ListaClientes) {
-                if (cliente.getNumeroDocumento().equals(
-                        pedido.getCliente().getNumeroDocumento())) {
+                if (cliente.getNumeroDocumento().equals(pedido.getCliente().getNumeroDocumento())) {
                     clienteRegistrado = true;
                 }
             }
@@ -193,17 +186,12 @@ public class Restaurante {
             }
 
             if (clienteRegistrado && !pedidoExiste) {
-
                 if (pedido.getCliente().agregarPedidoCliente(pedido)) {
                         ListaPedidos.add(pedido);
                         registrado = true;
                 }
-
-
             }
         }
-
-
         return registrado;
     }
 
@@ -220,45 +208,44 @@ public class Restaurante {
 
         return pedidoEncontrado;
     }
-    //gestionar domicilio---Valida domicilio
 
+    //modificar estado del pedido
+    public  boolean modificarEstadoPedido(String codigoPedido, EstadoPedido estadoPedido){
+        Pedido pedido=buscarPedido(codigoPedido);
+        if(pedido!=null){
+            pedido.setEstadoPedido(estadoPedido);
+            return true;
+        }
+        return false;
+    }
+
+    //gestionar domicilio---Validar domicilio (saber si el pedido cumple las condiciones segun su modalidad de entrega)
     public boolean gestionarDomicilioPedido(String codigoPedido) {
         boolean gestionado = false;
 
         Pedido pedido = buscarPedido(codigoPedido);
-
         if (pedido != null && pedido.getEntrega() != null) {
-
             double distancia = pedido.getDistancia();
-
             if (pedido.getEntrega().aceptarEntrega(distancia)) {
                 gestionado = true;
             }
         }
-
         return gestionado;
     }
 
     //confirmar pedido
-
     public boolean confirmarPedido(String codigoPedido) {
         boolean confirmado = false;
 
         Pedido pedido = buscarPedido(codigoPedido);
-
         if (pedido != null) {
-
-            if (pedido.getEstadoPedido() == EstadoPedido.PENDIENTE &&
-                    !pedido.getListadetallePedidos().isEmpty()) {
-
+            if (pedido.getEstadoPedido() == EstadoPedido.PENDIENTE && !pedido.getListadetallePedidos().isEmpty()) {
                 pedido.setEstadoPedido(EstadoPedido.CONFIRMADO);
                 confirmado = true;
             }
         }
-
         return confirmado;
     }
-
 
     //consultar pedido de los cliente
     public ArrayList<Pedido> consultarPedidosCliente(String numeroDocumento) {
@@ -270,53 +257,39 @@ public class Restaurante {
                 break;
             }
         }
-
         return pedidosCliente;
     }
-    //actualizar estado del pedido
 
+    //actualizar estado del pedido
     public boolean actualizarEstadoPedido(String codigoPedido, EstadoPedido nuevoEstado) {
         boolean actualizado = false;
 
         if (codigoPedido != null && nuevoEstado != null) {
-
             Pedido pedido = buscarPedido(codigoPedido);
-
             if (pedido != null) {
                 pedido.setEstadoPedido(nuevoEstado);
                 actualizado = true;
             }
         }
-
         return actualizado;
     }
 
-
-
     //===========Reportes=========
+
     //calcular ingresos del restaurante
-
-
     public double calcularIngresosRestaurante() {
         double ingresos = 0;
 
         for (Pedido pedido : ListaPedidos) {
-
-            if (pedido.getEstadoPedido() == EstadoPedido.CONFIRMADO ||
-                    pedido.getEstadoPedido() == EstadoPedido.ENTREGADO) {
-
-                double costoEntrega = pedido.getEntrega().calcularCostoEntrega(
-                        pedido.getDistancia()
-                );
-
+            if (pedido.getEstadoPedido() == EstadoPedido.CONFIRMADO || pedido.getEstadoPedido() == EstadoPedido.ENTREGADO) {
+                double costoEntrega = pedido.getEntrega().calcularCostoEntrega(pedido.getDistancia());
                 ingresos += pedido.calcularTotalPedido(costoEntrega);
             }
         }
-
         return ingresos;
     }
-    //Consultar producto màs vendido
 
+    //Consultar producto màs vendido
     public Producto obtenerProductoMasVendido() {
         Producto productoMasVendido = null;
         int mayorCantidad = 0;
@@ -326,8 +299,7 @@ public class Restaurante {
 
             for (Pedido pedido : ListaPedidos) {
 
-                if (pedido.getEstadoPedido() == EstadoPedido.CONFIRMADO ||
-                        pedido.getEstadoPedido() == EstadoPedido.ENTREGADO) {
+                if (pedido.getEstadoPedido() == EstadoPedido.CONFIRMADO || pedido.getEstadoPedido() == EstadoPedido.ENTREGADO) {
 
                     for (detallePedido detalle : pedido.getListadetallePedidos()) {
 
@@ -343,10 +315,51 @@ public class Restaurante {
                 productoMasVendido = producto;
             }
         }
-
         return productoMasVendido;
     }
 
-    //ingreso mayor por categoria
+    //cateforia con mayores ingresas
+    public String determinarCategoriaMayorIngreso(){
+        double ingresosPlatoFuerte=0;
+        double ingresosBebida=0;
+        double ingresosPostre=0;
 
+        for(Pedido pedido:ListaPedidos){
+            for(detallePedido detallePedido:pedido.getListadetallePedidos()){
+                Producto producto=detallePedido.getProducto();
+                if(producto!=null) {
+                    //multiplicamos la cantidad del producto obtenida en la clase DetallePedido y el valor de venta de prodcuto (asi no se incluye el valor del domicilio)
+                    double subtotal = detallePedido.getCantidad() * producto.precioVenta();
+
+                    //se usa instanceof para saber si el objeto esta instanciado en la clase que sigue, es necesario para identificar donde debe ir el subtotal y que no vaya a Producto
+                    if (producto instanceof PlatoFuerte) {
+                        ingresosPlatoFuerte += subtotal;
+                    } else if (producto instanceof Bebida) {
+                        ingresosBebida += subtotal;
+                    } else if (producto instanceof Postre) {
+                        ingresosPostre += subtotal;
+                    }
+                }
+            }
+        }
+        String categoriaMayorIngreso="";
+        double mayorIngreso=0;
+        if(ingresosPlatoFuerte>mayorIngreso){
+            mayorIngreso=ingresosPlatoFuerte;
+            categoriaMayorIngreso="Playo Fuerte";
+        }else if(ingresosBebida>mayorIngreso){
+            mayorIngreso=ingresosBebida;
+            categoriaMayorIngreso="Bebida";
+        }else if(ingresosPostre>mayorIngreso){
+            mayorIngreso=ingresosPostre;
+            categoriaMayorIngreso="Postre";
+        }
+
+        if(mayorIngreso>0){
+            return "La categoria con mayores ingresos es :"+categoriaMayorIngreso+
+                    "Ingresos: "+mayorIngreso;
+        }else{
+            return "No se puedo determinar la categoria con mayores ingresos";
+        }
+    }
 }
