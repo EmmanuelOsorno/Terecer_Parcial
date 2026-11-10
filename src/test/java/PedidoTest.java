@@ -6,7 +6,7 @@ public class PedidoTest {
 
     Cliente clientePrueba=new Cliente("123","sai", 123456,"sai@gamil.com", "Calle 20");
     Entrega entregaPrueba=new EntregaSegura();
-    Pedido pedido=new Pedido("pedido001",java.time.LocalDate.now(),10,clientePrueba,entregaPrueba,EstadoPedido.CONFIRMADO);
+    Pedido pedido=new Pedido("pedido001",java.time.LocalDate.now(),10,clientePrueba,entregaPrueba,EstadoPedido.PENDIENTE);
 
     @Test
     void noPermitirDistanciaNegativa(){
