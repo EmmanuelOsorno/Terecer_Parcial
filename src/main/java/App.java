@@ -247,6 +247,8 @@ public class App {
                         //agregar productos al pedido
                         int confirmar=1;
                         do {
+                            //limpiar buffer
+                            scanner.nextLine();
                             System.out.println("Codigo del producto: ");
                             String codigoPoductoP = scanner.nextLine();
 
