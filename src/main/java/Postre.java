@@ -75,6 +75,7 @@ public class Postre extends Producto{
         return "Postre: " + super.toString()+
                 "\nPeso (Gramos): " + pesoGramos +
                 "\nTemperatura de almacenamiento: " + temperaturaAlmacenamiento +
-                "\nRefrigeracion: " + refrigeracion;
+                "\nRefrigeracion: " + refrigeracion+
+                "\n";
     }
 }
