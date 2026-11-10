@@ -82,21 +82,9 @@ public class App {
                 case 12:
                     // Consultar categoría con mayores ingresos
                     break;
-
-                case 0:
-                    System.out.println("Gracias por utilizar Sabor & Tradicion.");
-                    break;
-
-                default:
-                    System.out.println("Opcion no valida. Intente nuevamente.");
-                    break;
             }
 
-
-
-
-        }
-        while (opcion != 0) ;
+        } while (opcion != 0) ;
         scanner.close();
     }
 }
