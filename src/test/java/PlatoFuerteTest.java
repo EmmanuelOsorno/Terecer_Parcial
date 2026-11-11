@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlatoFuerteTest {
 
     //instanciar un plato fuerte para la prueba
-    PlatoFuerte platoFuerte=new PlatoFuerte("abc","Lomo asado","Lomo de cerdo asado acompaññado con papas hervidas",35000,30,400,TipoPreparacion.ASADO,true);
+    PlatoFuerte platoFuerte=new PlatoFuerte("abc","Lomo asado","Lomo de cerdo asado acompañado con papas hervidas",35000,30,400,TipoPreparacion.ASADO,true);
 
     //prueba de datos correctos, para los atributos especificos de plato fuerte
     @Test
