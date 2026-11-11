@@ -2,41 +2,51 @@ import java.util.ArrayList;
 
 public class Cliente {
     //atributos
-    private int numeroDocumento;
-    private String nombre;
+    private String numeroDocumento;
+    private String nombreCompleto;
     private int telefono;
-    private String corre;
+    private String correo;
     private String direccionResidencia;
 
     //listas
-    private ArrayList<Pedido> ListaPedidios;
+    private ArrayList<Pedido> ListaPedidos;
 
     //constructor
-    public Cliente(int numeroDocumento, String nombre, int telefono, String corre, String direccionResidencia) {
+    public Cliente(String numeroDocumento, String nombreCompleto, int telefono, String correo, String direccionResidencia) {
         this.numeroDocumento = numeroDocumento;
-        this.nombre = nombre;
+        this.nombreCompleto = nombreCompleto;
         this.telefono = telefono;
-        this.corre = corre;
+        this.correo = correo;
         this.direccionResidencia = direccionResidencia;
+        this.ListaPedidos = new ArrayList<>();
 
-        this.ListaPedidios = new ArrayList<>();
+        //para los assertThrow
+        if(!correo.contains("@")){
+            throw new IllegalArgumentException("Debe ser una dirección de correo valida");
+        }
+
+        //convertir el telefono en String (solo para esta prueba)
+        String telefonoTexto=String.valueOf(telefono);
+        if(telefonoTexto.length()<6){
+            throw new IllegalArgumentException("El numero de telefono no puede tener menos de 6 digitos");
+        }
     }
 
     //get y set
-    public int getNumeroDocumento() {
+    public String getNumeroDocumento() {
         return numeroDocumento;
     }
 
-    public void setNumeroDocumento(int numeroDocumento) {
+    public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public int getTelefono() {
@@ -47,12 +57,12 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public String getCorre() {
-        return corre;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setCorre(String corre) {
-        this.corre = corre;
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getDireccionResidencia() {
@@ -63,11 +73,46 @@ public class Cliente {
         this.direccionResidencia = direccionResidencia;
     }
 
-    public ArrayList<Pedido> getListaPedidios() {
-        return ListaPedidios;
+    public ArrayList<Pedido> getListaPedidos() {
+        return ListaPedidos;
     }
 
-    public void setListaPedidios(ArrayList<Pedido> listaPedidios) {
-        ListaPedidios = listaPedidios;
+    public void setListaPedidos(ArrayList<Pedido> listaPedidos) {
+        ListaPedidos = listaPedidos;
+    }
+
+    //Verificar pedido
+    public boolean verificarPedidos(String codigoPedido) {
+
+        for (Pedido pedido : ListaPedidos) {
+            if (pedido.getCodigoPedido().equals(codigoPedido)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Mètodo agregar pedido
+    public boolean agregarPedidoCliente(Pedido pedido) {
+        boolean agregado = false;
+
+        boolean existe = verificarPedidos(pedido.getCodigoPedido());
+
+        if (existe == false) {
+            ListaPedidos.add(pedido);
+            agregado = true;
+        }
+
+        return agregado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "numeroDocumento='" + numeroDocumento + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", telefono=" + telefono +
+                ", correo='" + correo + '\'' +
+                ", direccionResidencia='" + direccionResidencia;
     }
 }

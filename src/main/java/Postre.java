@@ -11,6 +11,14 @@ public class Postre extends Producto{
         this.pesoGramos = pesoGramos;
         this.temperaturaAlmacenamiento = temperaturaAlmacenamiento;
         this.refrigeracion = refrigeracion;
+
+        //para los assertThrow
+        if(refrigeracion==true && temperaturaAlmacenamiento>6){
+            throw new IllegalArgumentException("La temperatura de almacenamiento no puede ser mayor a 6 grados");
+        }
+        if(tiempoEstimadoPreparacion<=0){
+            throw new IllegalArgumentException("El tiempo de preparacion no puede ser negativo");
+        }
     }
 
     //get y set
@@ -38,10 +46,10 @@ public class Postre extends Producto{
         this.refrigeracion = refrigeracion;
     }
 
-    //calcular precio de postre
+    //calcular precio de postre---adicional 0.05 si necesita refirgeración
     @Override
     public double precioVenta() {
-        double precioPostre=getPrecioBase();
+        double precioPostre=getPrecioBase()+ (getPrecioBase() * 0.15);
         if(refrigeracion==true){
             precioPostre+=(getPrecioBase()*0.05);
         }
@@ -59,5 +67,15 @@ public class Postre extends Producto{
             temperatura=(temperaturaAlmacenamiento>=15&&temperaturaAlmacenamiento<=30);
         }
         return peso && temperatura;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Postre: " + super.toString()+
+                "\nPeso (Gramos): " + pesoGramos +
+                "\nTemperatura de almacenamiento: " + temperaturaAlmacenamiento +
+                "\nRefrigeracion: " + refrigeracion+
+                "\n";
     }
 }

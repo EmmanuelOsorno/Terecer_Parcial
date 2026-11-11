@@ -12,6 +12,16 @@ public class Bebida extends Producto{
         this.temperaturaServicio = temperaturaServicio;
         this.tipoBebida = tipoBebida;
         this.preparacionEspecial = preparacionEspecial;
+
+        //para los assertThrow
+
+        if(descripcion==null){
+            throw new IllegalArgumentException("La descripcion no puede estar vacia");
+        }
+        if(tipoBebida==TipoBebida.FRIA && temperaturaServicio>10){
+            throw new IllegalArgumentException("La temperatura de una bebida fria no puede ser mayor a 10 grados");
+        }
+
     }
 
     //get y set
@@ -50,7 +60,7 @@ public class Bebida extends Producto{
     //calcular precio de bebida
     @Override
     public double precioVenta() {
-        double precioBebida=(getPrecioBase()*0.1)+getPrecioBase();
+        double precioBebida=(getPrecioBase()*0.10)+getPrecioBase();
         //si requiere preparacion especial
         if(preparacionEspecial==true){
             precioBebida+=3000;
@@ -69,5 +79,17 @@ public class Bebida extends Producto{
             temperatura=(temperaturaServicio>=55&&temperaturaServicio<=85);
         }
         return volumen&&temperatura;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Bebida: " + super.toString()+
+                "\nVolumen (Mililitros): " + volumenMililitros +
+                "\nTemperatura al servicio: " + temperaturaServicio +
+                "\nTipo: " + tipoBebida +
+                "\nPreparacion especial: " + preparacionEspecial +
+                "\n";
+
     }
 }

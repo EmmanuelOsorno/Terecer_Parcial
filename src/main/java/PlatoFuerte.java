@@ -10,6 +10,14 @@ public class PlatoFuerte extends Producto{
         this.pesoGramos = pesoGramos;
         this.tipoPreparacion = tipoPreparacion;
         ControlCocion = controlCocion;
+
+        //para los assertThrow
+        if(precioBase<=0){
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+        if(pesoGramos<=0){
+            throw new IllegalArgumentException("El peso no puede ser negativo");
+        }
     }
 
     //get y set
@@ -40,7 +48,7 @@ public class PlatoFuerte extends Producto{
     //calcular precio de plato fuerte
     @Override
     public double precioVenta() {
-        double precioPlatoFuerte=(getPrecioBase()*0.2)+getPrecioBase();
+        double precioPlatoFuerte=(getPrecioBase()*0.20)+getPrecioBase();
         return precioPlatoFuerte;
     }
 
@@ -50,5 +58,15 @@ public class PlatoFuerte extends Producto{
         boolean peso=(pesoGramos>=200&&pesoGramos<=900);
         boolean tiempoPreparacion=(getTiempoEstimadoPreparacion()>=10&&getTiempoEstimadoPreparacion()<=60);
         return peso && tiempoPreparacion && ControlCocion;
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Plato Fuerte: " + super.toString()+
+                "\nPeso (Gramos): " + pesoGramos +
+                "\nPresentacion: " + tipoPreparacion +
+                "\nControl de cocion: " + ControlCocion+
+                "\n";
     }
 }
