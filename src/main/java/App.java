@@ -399,7 +399,7 @@ public class App {
                     break;
 
                 case 0:
-                    System.out.println("Gracias por utilizar Sabor & Tradicion.");
+                    System.out.println("Gracias por utilizar el menú de Sabor & Tradicion.");
                     break;
 
                 default:
